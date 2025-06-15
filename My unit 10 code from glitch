@@ -1,0 +1,78 @@
+<!-- Unit 10 Project
+Requirements
+[  ] Loop #1 - While Loop
+[  ] Loop #2 - For Loop
+[  ] Loops #3 
+[  ] Three new HTML elements/CSS Declarations
+
+Select ONE Additional 
+[ no ] Feature 1 - if() statement
+[ no ] Feature 2 - random()
+[ no ] Feature 3 - image added to the canvas
+[ no ] Feature 4 - mouseX and mouseY
+[ no ] Feature 5 - custom function
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flowers</title>
+    <style>
+      body {
+        background-color: #fff8f0;
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      .flower {
+        width: 60px;
+        height: 60px;
+        background-image: url('https://cdn.glitch.global/dc0bc7ba-0c1c-4d65-abd6-9be665d41093/OIP.webp?1749901484237');
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin: 10px;
+      
+      }
+      .row{
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      h1 {
+        text-align:center;
+        color: #aa336a;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Flower Rows
+    </h1>
+    <div id="garden"></div>
+    <script>
+    function createFlower(size) {
+      const flower= document.createElement("div");
+      flower.className = "flower";
+      flower.style.width = size + "px";
+      flower.style.height = size + "px";
+      return flower;
+    
+    }
+      const garden = document.getElementById("garden");
+      for (let row = 0; row < 3; row++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "row";
+        let count = 0;
+        while (count < 5) {
+          const size = Math.floor(Math.random() * 40) + 40;
+          const flower = createFlower (size);
+          rowDiv.appendChild(flower);
+          count ++;
+        
+        }
+        garden.appendChild(rowDiv);
+      }
+    </script>
+  </body>
+</html>
+<!--- Taken From Khan Academy Intro to JS: Drawing & Animation --->
